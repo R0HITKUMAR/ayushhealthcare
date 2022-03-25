@@ -16,27 +16,6 @@ body {
   height: 60vh;
 }
 
-/* #home {
-  display: flex;
-  background: url("images/bg2.jpg") no-repeat center center/cover;
-  flex-direction: column;
-  padding: 0px 200px;
-  place-items: center;
-  height: 330px;
-  align-items: center;
-  justify-content: center;
-} */
-
-/* #home::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 65%;
-  width: 100%;
-  z-index: -1;
-  opacity: 0.49;
-} */
 
 #home h1 {
   font-family: "Bree Serif", serif;
@@ -52,38 +31,8 @@ body {
   font-size: 1.5rem;
 }
 
-/* #contact::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 75%;
-  z-index: -1;
-  background: url("images/contact2.jpeg") no-repeat center center/cover;
-  opacity: 0.6;
-} */
-/* #contactbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 15px;
-}
-#contactbox input,
-#contactbox textarea {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid black;
-  border-radius: 10px;
-  font-size: 1rem;
-}
-#contactbox form {
-  width: 30%;
-}
-#contactbox label {
-  font-family: "Bree Serif", serif;
-  font-size: 1.5rem;
-} */
-
 .card{
+  height: 700px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 #contact {

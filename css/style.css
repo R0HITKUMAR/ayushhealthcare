@@ -11,12 +11,12 @@ body {
   font-family: "Poppins", sans-serif;
 }
 #home {
-  height: 60vh;
+  height: 30vw;
   overflow: hidden;
 }
 
 .pic {
-  height: 60vh;
+  height: 30vw;
 }
 
 #home h1 {

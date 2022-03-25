@@ -16,7 +16,8 @@ body {
   justify-content: center;
   background: #7c2ae800;
   padding: 30px;
-  background-image: url("../images/ayush-banner.jpg");
+  background-image: url("../images/hosptal.jpg");
+
 }
 
 .container {
@@ -62,7 +63,7 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: #7d2ae8;
+  background: #0d6efd;
   opacity: 0.5;
   z-index: 12;
 }
@@ -119,7 +120,7 @@ body {
 }
 
 .cover .front {
-  background: #7d2ae8;
+  background: #0d6efd;
   backface-visibility: hidden;
 }
 
@@ -184,12 +185,12 @@ body {
 
 .form-content .input-box input:focus,
 .form-content .input-box input:valid {
-  border-color: #7d2ae8;
+  border-color: #0d6efd;
 }
 
 .form-content .input-box i {
   position: absolute;
-  color: #7d2ae8;
+  color: #0d6efd;
   font-size: 17px;
 }
 
@@ -214,7 +215,7 @@ body {
 
 .forms .form-content .button input {
   color: #fff;
-  background: #7d2ae8;
+  background: #0d6efd;
   border-radius: 6px;
   padding: 0;
   cursor: pointer;
@@ -222,11 +223,11 @@ body {
 }
 
 .forms .form-content .button input:hover {
-  background: #5b13b9;
+  background: #0d6efd;
 }
 
 .forms .form-content label {
-  color: #5b13b9;
+  color: #0d6efd;
   cursor: pointer;
 }
 

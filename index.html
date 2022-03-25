@@ -114,14 +114,14 @@
         AYUSH Hospitals. </marquee>
 
     <section id="body" class="mb-5">
-        <div id="demo"> </div>
+        <h2 style="margin-bottom: 0;" class="text-center mt-3" id="userLoc"> </h4>
         <!-- search box-->
         <div class="container">
-            <div class="row my-5">
-                <div class="col-8 mx-auto">
+            <div class="row mb-5 mt-1">
+                <div class=" col-12 col-md-8 mx-auto">
                     <div class="input-group shadow">
-                        <input type="text" class="form-control"
-                            placeholder="Search Ayush Hospital near you by name or location" aria-label="Search"
+                        <input id="searchBar" type="text" class="form-control"
+                            placeholder="Search by name or service" aria-label="Search"
                             aria-describedby="basic-addon2">
                         <span class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></span>
                     </div>
@@ -130,36 +130,8 @@
             <!-- hospital details -->
 
             <div id="hospital-list" class="row">
-                <!-- <div class="d-flex flex-wrap col-md-6 col-lg-4">
-            <div class="card">
-                <img src="images/hosptal.jpg" class="card-img-top" alt="Responsive image">
-                <div class="card-body">
-                    <h4 class="card-title fs-bold">Hospital Name</h4>
-                    <p class="card-text">Hospital address</p>
-                    <div class="text-center">
-                        <button style="width: 49%;" type="button" class="btn btn-outline-primary mb-2 " id="${taskData.id}">
-                            Call
-                        </button>
-                        <button style="width: 49%;" type="button" class="btn btn-outline-primary mb-2" id="${taskData.id}">
-                            Directions
-                        </button>
-                    </div>
-
-                    <p class="card-text"> Time: 8:00 am to 9:00 pm <br> website <br>
-                        services provided
-                    <ul>
-                        <li>accupressure </li>
-                        <li> ayurveda</li>
-                    </ul>
-                    </p>
-                </div>
-                <div class="card-footer text-center">
-                    <button style="width: 100%;" type="button" class="btn btn-outline-primary" id="${taskData.id}">
-                        Book Appointment/ Know More
-                    </button>
-                </div>
-            </div>
-        </div> -->
+                <div id="loader" class="lds-roller mx-auto"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        
             </div>
         </div>
     </section>
@@ -167,7 +139,7 @@
         <div class="container">
             <div class="row">
                 <div id="contact_form" class="col-8 p-4 mx-auto">
-                    <h1 class="display-6 text-center">Contact Us</h1>
+                    <h1  class="display-6 text-center">Contact Us</h1>
                     <form>
                         <div class="row">
                             <div class="col-6 my-2">
@@ -215,7 +187,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

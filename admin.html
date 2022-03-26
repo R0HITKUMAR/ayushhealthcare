@@ -32,8 +32,11 @@
         <li class="active">
           <a onclick="showdashboard_section()" href="#home"><span class="fa fa-home"></span> Home</a>
         </li>
+        <li class="active">
+          <a onclick="showquery_section()" href="#home"><span class="fa fa-question"></span> Query</a>
+        </li>
         <li>
-          <a onclick="showprofile_section()" href="#profile"><span class="fa fa-cog"></span>Profile</a>
+          <a onclick="showprofile_section()" href="#query"><span class="fa fa-cog"></span>Profile</a>
         </li>
         <li>
           <a onclick="showhelp_section()" href="#help">Help</a>
@@ -72,11 +75,41 @@
           </li>
         </ul>
       </nav>
-      
+
       <!--Dashboard-->
       <section id="dashboard-section" class="">
         <h2 class="ml-4">Dashboard</h2>
       </section>
+
+      <!--Dashboard-->
+      <section id="query-section" class="d-none">
+        <h2 class="ml-4">Query</h2>
+
+        <!--Table-->
+        <div class="container">
+          <div class="collapse show">
+            <div class="card card-body mb-5">
+              <table class="table table-responsive-lg" id="contactTable">
+                <thead>
+                  <tr>
+                    <th>S No.</th>
+                    <th>Query ID</th>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                    <th>Contact</th>
+                    <th>#</th>
+                  </tr>
+                </thead>
+                <tbody id="contact-table"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       <!--Profile-->
       <section id="profile-section" class="d-none">

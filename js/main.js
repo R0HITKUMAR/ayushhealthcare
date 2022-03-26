@@ -294,22 +294,19 @@ function makeHospitalUI(hospital) {
     <p class="card-text text-center">${hospital.address}</p>
     <hr class="mx-auto" style="height: .5px; width: 80%;">
     <div class="text-center">
-    <a href="tel:${hospital.phone_No}"
-    <button style="width: 49%;" type="button" class="btn btn-outline-primary mb-2">
-        Call
-    </button>
-    </a>
-    <button style="width: 49%;" type="button" class="btn btn-outline-primary mb-2">
-        Directions
-    </button>
-</div>
-
-<p style="margin-top: 0; margin-bottom: 0;" class="card-text text-center"> Time:  ${hospital.open_time} to ${hospital.close_time
-    } 
- 
-<h4 style="margin-top: 0;" class="text-center">Distance: ${(hospital.distance / 1000).toFixed(
-      2
-    )} Km</h4>
+      <a href="tel:${hospital.phone_No}"
+      <button style="width: 49%;" type="button" class="btn btn-outline-primary mb-2">
+          Call
+      </button>
+      </a>
+      <button style="width: 49%;" type="button" class="btn btn-outline-primary mb-2">
+          Directions
+      </button>
+    </div>
+    <p style="margin-top: 0; margin-bottom: 0;" class="card-text text-center"> Time:  ${hospital.open_time} to ${hospital.close_time} 
+    <h4 style="margin-top: 0;" class="text-center">Distance: ${(hospital.distance / 1000).toFixed(
+    2
+  )} Km</h4>
     `;
   b += `<ul>`;
 

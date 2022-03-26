@@ -41,7 +41,10 @@
                         <a class="nav-link active fw-bold fs-5 " aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold fs-5 " aria-current="page" href="#">Query</a>
+                        <a onclick="registerQuery()" class="nav-link fw-bold fs-5 " aria-current="page" href="#contact">Query</a>
+                    </li>
+                    <li class="nav-item">
+                        <a onclick="searchQuery()" class="nav-link fw-bold fs-5 " aria-current="page" href="#">Track Query</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold fs-5 " aria-current="page" href="#">Get App</a>
@@ -114,59 +117,85 @@
         AYUSH Hospitals. </marquee>
 
     <section id="body" class="mb-5">
-        <h2 style="margin-bottom: 0;" class="text-center mt-3" id="userLoc"> </h4>
-        <!-- search box-->
-        <div class="container">
-            <div class="row mb-5 mt-1">
-                <div class=" col-12 col-md-8 mx-auto">
-                    <div class="input-group shadow">
-                        <input id="searchBar" type="text" class="form-control"
-                            placeholder="Search by name or service" aria-label="Search"
-                            aria-describedby="basic-addon2">
-                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></span>
+        <h2 style="margin-bottom: 0;" class="text-center mt-3" id="userLoc">
+            </h4>
+            <!-- search box-->
+            <div class="container">
+                <div class="row mb-5 mt-1">
+                    <div class=" col-12 col-md-8 mx-auto">
+                        <div class="input-group shadow">
+                            <input id="searchBar" type="text" class="form-control"
+                                placeholder="Search by name or service" aria-label="Search"
+                                aria-describedby="basic-addon2">
+                            <span class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- hospital details -->
+                <!-- hospital details -->
 
-            <div id="hospital-list" class="row">
-                <div id="loader" class="lds-roller mx-auto"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-        
+                <div id="hospital-list" class="row">
+                    <div id="loader" class="lds-roller mx-auto">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+
+                </div>
             </div>
-        </div>
     </section>
     <section id="contact" class="mt-5">
         <div class="container">
             <div class="row">
                 <div id="contact_form" class="col-8 p-4 mx-auto">
-                    <h1  class="display-6 text-center">Contact Us</h1>
-                    <form>
+                    <h1 class="display-6 text-center">Contact Us</h1>
+                    <form id="queryForm">
+                        <div id="queryFormAlert"></div>
                         <div class="row">
                             <div class="col-6 my-2">
-                                <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" placeholder="Tarak" aria-label="First name">
+                                <label for="firstName" class="form-label">Full Name</label>
+                                <input id="name" type="text" class="form-control" placeholder="Tarak Mehta"
+                                    aria-label="First name">
                             </div>
                             <div class="col-6 my-2">
-                                <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" placeholder="Meheta" aria-label="Last name">
+                                <label for="lastName" class="form-label">Contact No.</label>
+                                <input id="cno" type="number" class="form-control" placeholder="90xxxxxxx"
+                                    aria-label="Last name">
                             </div>
                             <div class="col-12 my-2">
                                 <label for="emailId" class="form-label">Email Id</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                <input id="email" type="email" class="form-control" id="exampleInputEmail1"
                                     placeholder="abc123@xyz.com" aria-label="emailHelp">
                             </div>
                             <div class="col-12 my-2">
                                 <label for="inputAddress" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                <input id="address" type="text" class="form-control" id="inputAddress"
+                                    placeholder="1234 Main St">
                             </div>
                             <div class="col-12 my-2">
                                 <label for="inoutMessage" class="form-label">Message</label>
-                                <textarea class="form-control" aria-label="With textarea"></textarea>
+                                <textarea id="message" class="form-control" aria-label="With textarea"></textarea>
 
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                        <button type="submit" id="queryFormButton" class="btn btn-primary mt-2" style="float:right !important">Submit</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="tcontact" class="mt-5 mb-5 d-none">
+        <div class="container">
+            <div class="row">
+                <div id="search_form" class="col-8 p-4 mx-auto">
+                    <h1 class="display-6 text-center">Track Query</h1>
+                    <div id="querySFormAlert"></div>
+                    <input id="queryID" type="text" class="form-control" placeholder="Enter Query ID">
+                    <button onclick="trackQuery()" id="queryIdButton" class="btn btn-primary mt-2" style="float:right !important">Search</button>
                 </div>
             </div>
         </div>
@@ -184,9 +213,14 @@
         <hr class="mx-auto" style="height: .5px; width: 50%;">
         <p class="text-center text-muted my-4">Copyright &copy; NABH Accredited AYUSH Hospitals</p>
     </footer>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="./js/firebase.js"></script>
     <script src="js/main.js"></script>
 </body>
 

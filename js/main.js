@@ -225,7 +225,7 @@ function getUserLocation() {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
 
-    getUserAddress(latitude,longitude)
+    getUserAddress(latitude, longitude)
 
     const api_url = `https://ayushservice.azurewebsites.net/getAllInfoToSend/${longitude}/${latitude}`;
     console.log(position);
@@ -234,22 +234,22 @@ function getUserLocation() {
   }
 }
 
-async function getUserAddress(lat,long){
+async function getUserAddress(lat, long) {
   const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${long}&apiKey=ef550c29b846479ea69d61ea4c6cdc7f`
   const res = await fetch(url)
 
   var add = await res.json()
-  if(res){
-    var address =add.features[0].properties;
-    console.log(address.address_line1+" "+address.city+" "+address.country);
-    if(address.address_line1)
-    userLocation.innerHTML = `${address.address_line1},`
-    if(address.city)
+  if (res) {
+    var address = add.features[0].properties;
+    console.log(address.address_line1 + " " + address.city + " " + address.country);
+    if (address.address_line1)
+      userLocation.innerHTML = `${address.address_line1},`
+    if (address.city)
       userLocation.innerHTML += ` ${address.city},`
-      if(address.country){
-        userLocation.innerHTML += ` ${address.country}`
-      }
+    if (address.country) {
+      userLocation.innerHTML += ` ${address.country}`
     }
+  }
 }
 
 // Defining async function
@@ -304,13 +304,12 @@ function makeHospitalUI(hospital) {
     </button>
 </div>
 
-<p style="margin-top: 0; margin-bottom: 0;" class="card-text text-center"> Time:  ${hospital.open_time} to ${
-    hospital.close_time
-  } 
+<p style="margin-top: 0; margin-bottom: 0;" class="card-text text-center"> Time:  ${hospital.open_time} to ${hospital.close_time
+    } 
  
 <h4 style="margin-top: 0;" class="text-center">Distance: ${(hospital.distance / 1000).toFixed(
-    2
-  )} Km</h4>
+      2
+    )} Km</h4>
     `;
   b += `<ul>`;
 
@@ -336,4 +335,96 @@ function makeHospitalUI(hospital) {
   hospitalBlock.appendChild(hospitalCard);
 
   hospitalList.appendChild(hospitalBlock);
+}
+
+
+$('#queryForm').submit(function (e) {
+  e.preventDefault();
+  var Alert = document.getElementById("queryFormAlert");
+  Alert.innerHTML = "";
+  var button = document.getElementById("queryFormButton");
+  var ID = "AH" + Date.now();
+  var Name = $('#name').val();
+  var Cno = $('#cno').val();
+  var email = $('#email').val();
+  var address = $('#address').val();
+  var query = $('#message').val();
+  if (Name != "" && email != "" && address != "" && query != "" && Cno != "") {
+    button.innerHTML = `Loading.. <i class="fas fa-spinner fa-spin"></i>`;
+    const Data = {
+      ID: ID,
+      Name: Name,
+      Cno: Cno,
+      Email: email,
+      Add: address,
+      Query: query,
+      Status: "Submitted",
+      Date: new Date().toLocaleDateString()
+    };
+    firebase.database().ref('Query/' + ID).set(Data);
+    AlertText = `
+  <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+    <strong>Query Registerted!</strong> <br>Dear User Your Query is Registered with <b>Query ID : ${ID}</b><br>
+    Please Track using Track Form
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>`;
+    Alert.innerHTML = AlertText;
+    button.innerHTML = `Submitted`;
+    $('#queryForm')[0].reset();
+  }
+  else {
+    AlertText = `
+    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+      <strong>Missing !</strong> Some fields are missing.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`;
+    Alert.innerHTML = AlertText;
+  }
+});
+
+function searchQuery() {
+  document.getElementById("contact").classList.add("d-none");
+  document.getElementById("tcontact").classList.remove("d-none");
+}
+function registerQuery() {
+  document.getElementById("tcontact").classList.add("d-none");
+  document.getElementById("contact").classList.remove("d-none");
+}
+
+function trackQuery() {
+  var QueryID = $('#queryID').val();
+  QueryID = QueryID.toUpperCase();
+  var Alert = document.getElementById("querySFormAlert");
+  Alert.innerHTML = "";
+  if (QueryID != "") {
+    // Search Query
+    firebase.database().ref('Query/' + QueryID).once('value').then(function (snapshot) {
+      data = snapshot.val();
+      if (data == null) {
+        AlertText = `
+        <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+          <strong>Not Found !</strong> Invalid Query ID.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>`;
+        Alert.innerHTML = AlertText;
+      }
+      else {
+        AlertText = `
+        <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+          <strong>Result Found !</strong> <br>Current Status : ${data.Status}</b>.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>`;
+        Alert.innerHTML = AlertText;
+      }
+    });
+  }
+  else {
+    AlertText = `
+    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+      <strong>Missing !</strong>Enter a Query ID First.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`;
+    Alert.innerHTML = AlertText;
+
+  }
 }

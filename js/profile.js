@@ -17,11 +17,25 @@ function hideall() {
     document.getElementById('profile-section').classList.add("d-none");
     document.getElementById('help-section').classList.add("d-none");
     document.getElementById('query-section').classList.add("d-none");
+    document.getElementById('addhospital-section').classList.add("d-none");
+    document.getElementById('hospital-section').classList.add("d-none");
 }
 function showdashboard_section() {
     hideall();
     document.getElementById('dashboard-section').classList.remove("d-none");
 }
+
+function showhospital_section(){
+    hideall();
+    document.getElementById('hospital-section').classList.remove("d-none");
+
+}
+
+function showaddhospital_section(){
+    hideall();
+    document.getElementById('addhospital-section').classList.remove("d-none");
+}
+
 function showquery_section() {
     hideall();
     document.getElementById('query-section').classList.remove("d-none");

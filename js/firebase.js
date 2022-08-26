@@ -1,12 +1,12 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyBxhbftLddbZYgu6-YrJaA5bc36OS6xlGU",
-    authDomain: "ayush-sih.firebaseapp.com",
-    databaseURL: "https://ayush-sih-default-rtdb.firebaseio.com",
-    projectId: "ayush-sih",
-    storageBucket: "ayush-sih.appspot.com",
-    messagingSenderId: "1015975957408",
-    appId: "1:1015975957408:web:79888e8a4863cbc39d0ac5"
-  };
-  
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  apiKey: "AIzaSyDh8olPea531049KKeLO_o0GkysHFCFG7U",
+  authDomain: "ayush-healthcare.firebaseapp.com",
+  databaseURL: "https://ayush-healthcare-default-rtdb.firebaseio.com",
+  projectId: "ayush-healthcare",
+  storageBucket: "ayush-healthcare.appspot.com",
+  messagingSenderId: "508583726147",
+  appId: "1:508583726147:web:2c6e7c911dc378b22d98f6",
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
